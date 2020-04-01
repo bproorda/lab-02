@@ -35,13 +35,11 @@ function dropDownRender(object) {
     $option.text(object.keyword);
 
 
-    if (keywords.some(function (element) {
-        return element === object.keyword;
-    })) {
-    } else {
-        keywords.push(object.keyword);
+    if (keywords.every(function (element) {
+        return element !== object.keyword;
+    })) { keywords.push(object.keyword);
         $select.append($option);
-    }
+    } 
 
 }
 $(document).ready(function () {
